@@ -6,6 +6,7 @@ import LabelReleases from './LabelReleases';
 const DisplayLabels = ({ labelName }) => {
     const [labelArray, setLabelArrays] = useState([]);
     const [seeReleases, setSeeReleases] = useState(false);
+    const [recordLabelID, setRecordLabelID] = useState(null);
 
 
     useEffect(() => {
@@ -19,12 +20,13 @@ const DisplayLabels = ({ labelName }) => {
                 }
             }).then((res) => {
                 setLabelArrays(res.data.labels);
+                console.log(labelArray);
             })
         }
-        console.log(labelName);
     }, [labelName])
     const handleClick = (id) => {
         setSeeReleases(!seeReleases);
+        setRecordLabelID(id)
     }
     return (
         <>
@@ -33,18 +35,18 @@ const DisplayLabels = ({ labelName }) => {
                     labelArray.length > 0 ?
                         labelArray.map((label) => {
                             return (
-                                <>
-                                    <li>{label.name} : {label.type} : {label.disambiguation}</li>
-                                    <button onClick={handleClick}>SHOW ME ALBUMS</button>
+                                <div key={label.id}>
+                                    <li >{label.name} : {label.type} : {label.disambiguation}</li>
+                                    <button onClick={() => handleClick(label.id)}>SHOW ME ALBUMS</button>
                                     {
-                                        seeReleases ?
-                                            <LabelReleases id={label.id} />
+                                        recordLabelID === label.id ?
+                                            <LabelReleases id={recordLabelID} />
                                             : null
                                     }
-                                </>
+                                </div>
                             )
                         })
-                        : <li>No Label Found</li>
+                        : null
                 }
 
             </ul>
