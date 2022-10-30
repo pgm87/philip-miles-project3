@@ -6,28 +6,39 @@ const LabelReleases = ({ id }) => {
     const [releasesArray, setReleasesArray] = useState([]);
     const [recordLabelID, setId] = useState(null);
     console.log(id);
-    // useEffect(() => {
-    //     if (id !== '') {
-    //         axios({
-    //             url: `https://musicbrainz.org/ws/2/label/${id}`,
-    //             method: "GET",
-    //             params: {
-    //         
-    //                 fmt: 'json',
-    //                 inc: 'releases'
-    //             }
-    //         }).then((res) => {
-    //             console.log(res);
-    //         })
-    //     }
+    useEffect(() => {
+        if (id !== '') {
+            axios({
+                url: `https://musicbrainz.org/ws/2/label/${id}`,
+                method: "GET",
+                params: {
+                    fmt: 'json',
+                    inc: 'releases+artist-credits'
+                }
+            }).then((res) => {
+                console.log(res.data.releases);
+                setReleasesArray(res.data.releases);
+            })
+        }
 
-    // }, [recordLabelID])
+    }, [recordLabelID]);
+
     return (
         <div>
-            {
-                id
-            }
-        </div>
+            <ul>
+                {
+                    releasesArray.length > 0 ?
+                        releasesArray.map((release) => {
+                            return (
+                                <div key={release.id}>
+                                    <li >{release["artist-credit"][0]["name"]}-{release.title}</li>
+                                </div>
+                            )
+                        })
+                        : null
+                }
+            </ul>
+        </div >
     )
 }
 
