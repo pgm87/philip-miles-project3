@@ -5,48 +5,68 @@ import { useEffect, useState } from "react";
 const LabelReleases = ({ id }) => {
     const [releasesArray, setReleasesArray] = useState([]);
     const [recordLabelID, setId] = useState(null);
-    console.log(id);
+    const [offset, setOffset] = useState(0);
+    const handleClickBack = () => {
+        setOffset(offset - 25);
+    }
+    const handleClickForward = () => {
+        setOffset(offset + 25);
+    }
+
     useEffect(() => {
         if (id !== '') {
             axios({
-                url: `https://musicbrainz.org/ws/2/label/${id}`,
-                method: "GET",
+                url: `https://musicbrainz.org/ws/2/release?label=${id}`,
                 params: {
                     fmt: 'json',
-                    inc: 'releases+artist-credits'
+                    inc: 'artist-credits+genres+media',
+                    offset: offset
                 }
             }).then((res) => {
+                const unique = [...new Map(res.data.releases.map((release) => [release["status-id"], release])).values()];
                 console.log(res.data.releases);
+
                 setReleasesArray(res.data.releases);
             })
         }
 
-    }, [recordLabelID]);
+    }, [recordLabelID, offset]);
+
+
 
     return (
         <div>
+            {
+                offset > 0 ?
+                    <button onClick={handleClickBack}>BACK</button>
+                    : null
+            }
             <ul>
                 {
                     releasesArray.length > 0 ?
                         releasesArray.map((release) => {
                             return (
-                                <div key={release.id}>
-                                    <li>
-                                        <span>
+                                < div key={release.id} >
+                                    <li> |||||
+                                        <em>
                                             {release["artist-credit"].map((artist) => {
                                                 return (
                                                     artist["name"] + artist["joinphrase"]
                                                 )
                                             })}
-                                        </span> -
-                                        {release.title}
+                                        </em> -
+                                        {release.title} |||
                                     </li>
                                 </div>
                             )
                         })
                         : null
                 }
-            </ul>
+            </ul >
+            {releasesArray.length > 0 ?
+                <button onClick={handleClickForward}>F</button>
+                : null
+            }
         </div >
     )
 }
