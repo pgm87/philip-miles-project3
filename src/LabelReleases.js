@@ -56,6 +56,12 @@ const LabelReleases = ({ id }) => {
                                             })}
                                         </em> -
                                         {release.title} |||
+                                        {
+                                            release["cover-art-archive"].artwork == false ?
+                                                <p>NO IMAGE FOUND</p>
+                                                :
+                                                <div style={{ maxWidth: '100px' }}><img style={{ height: 'auto', width: '100%' }} src={`https://coverartarchive.org/release/${release.id}/front`} alt="" /></div>
+                                        }
                                     </li>
                                 </div>
                             )
@@ -63,7 +69,7 @@ const LabelReleases = ({ id }) => {
                         : null
                 }
             </ul >
-            {releasesArray.length > 0 ?
+            {releasesArray.length > 0 && releasesArray.length == 25 ?
                 <button onClick={handleClickForward}>F</button>
                 : null
             }

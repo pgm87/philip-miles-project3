@@ -20,7 +20,6 @@ const DisplayLabels = ({ labelName }) => {
                 }
             }).then((res) => {
                 setLabelArrays(res.data.labels);
-                console.log(labelArray);
             })
         }
     }, [labelName])
@@ -37,9 +36,13 @@ const DisplayLabels = ({ labelName }) => {
                             return (
                                 <div key={label.id}>
                                     <li >{label.name} : {label.type} : {label.disambiguation}</li>
-                                    <button onClick={() => handleClick(label.id)}>SHOW ME ALBUMS</button>
                                     {
-                                        recordLabelID === label.id ?
+                                        seeReleases == false ?
+                                            < button onClick={() => handleClick(label.id)}>SHOW ME ALBUMS</button>
+                                            : < button onClick={() => handleClick(label.id)}>HIDEALBUMS</button>
+                                    }
+                                    {
+                                        recordLabelID === label.id && seeReleases == true ?
                                             <LabelReleases id={recordLabelID} />
                                             : null
                                     }
