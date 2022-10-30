@@ -31,7 +31,16 @@ const LabelReleases = ({ id }) => {
                         releasesArray.map((release) => {
                             return (
                                 <div key={release.id}>
-                                    <li >{release["artist-credit"][0]["name"]}-{release.title}</li>
+                                    <li>
+                                        <span>
+                                            {release["artist-credit"].map((artist) => {
+                                                return (
+                                                    artist["name"] + artist["joinphrase"]
+                                                )
+                                            })}
+                                        </span> -
+                                        {release.title}
+                                    </li>
                                 </div>
                             )
                         })
