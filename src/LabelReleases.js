@@ -7,10 +7,10 @@ const LabelReleases = ({ id }) => {
     const [recordLabelID, setId] = useState(null);
     const [offset, setOffset] = useState(0);
     const handleClickBack = () => {
-        setOffset(offset - 25);
+        setOffset(offset - 10);
     }
     const handleClickForward = () => {
-        setOffset(offset + 25);
+        setOffset(offset + 10);
     }
 
     useEffect(() => {
@@ -20,7 +20,8 @@ const LabelReleases = ({ id }) => {
                 params: {
                     fmt: 'json',
                     inc: 'artist-credits+genres+media',
-                    offset: offset
+                    offset: offset,
+                    limit: 10
                 }
             }).then((res) => {
 
@@ -37,13 +38,15 @@ const LabelReleases = ({ id }) => {
 
 
     return (
-        <section className="labelReleases">
-            {
-                offset > 0 ?
-                    <button onClick={handleClickBack}>BACK</button>
-                    : null
-            }
+        <>
+
+
             <ul>
+                {
+                    offset > 0 ?
+                        <button className="btnBack" onClick={handleClickBack}>B</button>
+                        : null
+                }
                 {
                     releasesArray.length > 0 ?
                         releasesArray.map((release) => {
@@ -60,9 +63,9 @@ const LabelReleases = ({ id }) => {
                                         {release.title} |||
                                         {
                                             release["cover-art-archive"].front == false ?
-                                                <p>NO IMAGE FOUND</p>
+                                                <div className="imgContainer"><i className="fa-solid fa-record-vinyl"></i></div>
                                                 :
-                                                <div style={{ maxWidth: '100px' }}><img style={{ height: 'auto', width: '100%' }} src={`https://coverartarchive.org/release/${release.id}/front`} alt="Photo" /></div>
+                                                <div className="imgContainer"><img src={`https://coverartarchive.org/release/${release.id}/front`} alt="Photo" /></div>
                                         }
                                     </li>
                                 </div>
@@ -70,12 +73,15 @@ const LabelReleases = ({ id }) => {
                         })
                         : null
                 }
+                {
+                    releasesArray.length > 8 ?
+                        <button className="btnForward" onClick={handleClickForward}>F</button>
+                        : null
+                }
+                <i className="fa-solid fa-x"></i>
             </ul >
-            {releasesArray.length > 24 ?
-                <button onClick={handleClickForward}>F</button>
-                : null
-            }
-        </section >
+
+        </>
     )
 }
 

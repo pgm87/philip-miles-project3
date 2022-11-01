@@ -261,6 +261,16 @@ html {
   margin: 0 auto;
 }
 
+.imgContainer {
+  width: 15%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 header h1 {
   text-align: center;
 }
@@ -286,4 +296,53 @@ header h3 {
 }
 .formSearch form button {
   align-self: center;
+}
+
+.labelNames {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.labelNames .labelReleases {
+  transition: 0.3s;
+  padding: 30px 40px;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+.labelNames .labelReleases ul {
+  position: relative;
+}
+.labelNames .labelReleases ul div li {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+}
+.labelNames .labelReleases ul .btnBack {
+  position: absolute;
+  left: 0;
+  top: 50%;
+}
+.labelNames .labelReleases ul .btnForward {
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+.labelNames .labelReleases .xBtn {
+  position: absolute;
+  top: 2%;
+  right: -2%;
+}
+
+.hidden {
+  display: none;
 }/*# sourceMappingURL=App.css.map */

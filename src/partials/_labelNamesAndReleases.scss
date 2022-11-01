@@ -1,0 +1,55 @@
+@use "mixins" as *;
+
+.labelNames {
+    @include flex(column, wrap);
+
+    .labelReleases {
+        transition: 0.3s;
+        padding: 30px 40px;
+        position: fixed;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        background-color: green;
+        @include flex(column, nowrap);
+        align-items: flex-start;
+
+        ul {
+
+            position: relative;
+
+            div {
+                li {
+                    @include flex(row, wrap);
+                    width: 80%;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+
+            .btnBack {
+                position: absolute;
+                left: 0;
+                top: 50%;
+            }
+
+            .btnForward {
+                position: absolute;
+                right: 0;
+                top: 50%;
+            }
+
+
+        }
+
+        .xBtn {
+            position: absolute;
+            top: 2%;
+            right: -2%;
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}

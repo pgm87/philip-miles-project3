@@ -26,10 +26,13 @@ const DisplayLabels = ({ labelName }) => {
         setSeeReleases(!seeReleases);
         setRecordLabelID(id)
     }
+    const handleShowDisplay = () => {
+        setSeeReleases(!seeReleases);
+    }
     return (
         <>
 
-            <ul >
+            <ul>
                 {
                     labelArray.length > 0 ?
                         labelArray.map((label) => {
@@ -45,12 +48,15 @@ const DisplayLabels = ({ labelName }) => {
                 }
 
             </ul>
-
-            {
-                recordLabelID === recordLabelID && seeReleases == true ?
-                    <LabelReleases id={recordLabelID} />
-                    : null
-            }
+            <section className={seeReleases == false ? 'hidden' : 'labelReleases'}>
+                <h2>Display releases</h2>
+                {
+                    recordLabelID === recordLabelID && seeReleases === true ?
+                        <LabelReleases id={recordLabelID} />
+                        : null
+                }
+                <button onClick={handleShowDisplay} className="xButton"><i className="fa-solid fa-x"></i></button>
+            </section>
         </>
     )
 
