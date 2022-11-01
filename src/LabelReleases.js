@@ -25,11 +25,6 @@ const LabelReleases = ({ id }) => {
                     limit: 10
                 }
             }).then((res) => {
-
-
-                // const unique = [...new Map(res.data.releases.map((release) => [release["status-id"], release])).values()];
-                // console.log(res.data.releases["status-id"]);
-                console.log(res.data.releases);
                 setReleasesArray(res.data.releases);
             })
         }
@@ -40,8 +35,6 @@ const LabelReleases = ({ id }) => {
 
     return (
         <>
-
-
             <ul>
                 {
                     offset > 0 ?
@@ -52,16 +45,16 @@ const LabelReleases = ({ id }) => {
                     releasesArray.length > 0 ?
                         releasesArray.map((release) => {
                             return (
-                                < div key={release.id} >
-                                    <li> |||||
-                                        <em>
-                                            {release["artist-credit"].map((artist) => {
-                                                return (
-                                                    artist["name"] + artist["joinphrase"]
-                                                )
-                                            })}
-                                        </em> -
-                                        {release.title} |||
+                                < div key={release.id} className="labelReleaseContainer" >
+                                    <li>
+
+                                        {release["artist-credit"].map((artist) => {
+                                            return (
+                                                artist["name"] + artist["joinphrase"]
+                                            )
+                                        })}
+                                        -
+                                        {release.title}
                                         {
                                             release["cover-art-archive"].front === false ?
                                                 <div className="imgContainer"><i className="fa-solid fa-record-vinyl"></i></div>
@@ -79,7 +72,7 @@ const LabelReleases = ({ id }) => {
                         <button className="btnForward" onClick={handleClickForward}>F</button>
                         : null
                 }
-                <i className="fa-solid fa-x"></i>
+
             </ul >
 
         </>

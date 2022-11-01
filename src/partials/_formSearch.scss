@@ -8,6 +8,9 @@
     form {
         @include flex(column, wrap);
         width: 80%;
+        align-items: center;
+        margin: 0 auto;
+
 
         label {
             width: 30%;

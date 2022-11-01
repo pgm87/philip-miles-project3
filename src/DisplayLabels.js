@@ -35,7 +35,7 @@ const DisplayLabels = ({ labelName }) => {
                     labelArray.length > 0 ?
                         labelArray.map((label) => {
                             return (
-                                <div key={label.id}>
+                                <div key={label.id} className="labelNameContainer">
                                     <li >{label.name} : {label.type} : {label.disambiguation}</li>
                                     < button onClick={() => handleClick(label.id)} >SHOW ME ALBUMS</button>
 

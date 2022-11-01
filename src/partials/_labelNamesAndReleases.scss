@@ -2,28 +2,43 @@
 
 .labelNames {
     @include flex(column, wrap);
+    align-items: center;
+
+    .labelNameContainer {
+        @include flex(row, wrap);
+    }
 
     .labelReleases {
         transition: 0.3s;
         padding: 30px 40px;
         position: fixed;
         transform: translate(-50%, -50%);
+        transition: 0.3s;
         left: 50%;
         top: 50%;
         background-color: green;
         @include flex(column, nowrap);
-        align-items: flex-start;
+        align-items: center;
+        width: 80%;
+
+        h2 {
+            text-align: center;
+        }
 
         ul {
-
             position: relative;
 
-            div {
+            .labelReleaseContainer {
+                width: 100%;
+                @include flex(row, wrap);
+
+
                 li {
                     @include flex(row, wrap);
                     width: 80%;
                     justify-content: space-between;
                     align-items: center;
+                    margin: 0 auto;
                 }
             }
 
@@ -52,4 +67,8 @@
 
 .hidden {
     display: none;
+}
+
+.blur {
+    filter: blur(5px);
 }

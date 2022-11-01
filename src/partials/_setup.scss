@@ -252,3 +252,13 @@ html {
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
+
+html {
+    font-size: 125%;
+    scroll-behavior: smooth;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}

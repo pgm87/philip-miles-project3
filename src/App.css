@@ -255,6 +255,16 @@ html {
   overflow: hidden;
 }
 
+html {
+  font-size: 125%;
+  scroll-behavior: smooth;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 .wrapper {
   max-width: 1280px;
   width: 90%;
@@ -262,7 +272,33 @@ html {
 }
 
 .imgContainer {
-  width: 15%;
+  min-width: 9%;
+  max-width: 9%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.imgContainer i {
+  font-size: 1.2rem;
+  padding: 30%;
+}
+
+body {
+  background-color: #d3d5d7;
+  color: #050517;
+}
+
+button {
+  background-color: #8C5E58;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  list-style: none;
 }
 
 img {
@@ -287,6 +323,8 @@ header h3 {
   flex-direction: column;
   flex-wrap: wrap;
   width: 80%;
+  align-items: center;
+  margin: 0 auto;
 }
 .formSearch form label {
   width: 30%;
@@ -302,30 +340,48 @@ header h3 {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
+}
+.labelNames .labelNameContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .labelNames .labelReleases {
   transition: 0.3s;
   padding: 30px 40px;
   position: fixed;
   transform: translate(-50%, -50%);
+  transition: 0.3s;
   left: 50%;
   top: 50%;
   background-color: green;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  align-items: flex-start;
+  align-items: center;
+  width: 80%;
+}
+.labelNames .labelReleases h2 {
+  text-align: center;
 }
 .labelNames .labelReleases ul {
   position: relative;
 }
-.labelNames .labelReleases ul div li {
+.labelNames .labelReleases ul .labelReleaseContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.labelNames .labelReleases ul .labelReleaseContainer li {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 80%;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
 }
 .labelNames .labelReleases ul .btnBack {
   position: absolute;
@@ -345,4 +401,8 @@ header h3 {
 
 .hidden {
   display: none;
+}
+
+.blur {
+  filter: blur(5px);
 }/*# sourceMappingURL=App.css.map */
