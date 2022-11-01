@@ -28,29 +28,29 @@ const DisplayLabels = ({ labelName }) => {
     }
     return (
         <>
-            <div className="labelNames">
-                <ul >
-                    {
-                        labelArray.length > 0 ?
-                            labelArray.map((label) => {
-                                return (
-                                    <div key={label.id}>
-                                        <li >{label.name} : {label.type} : {label.disambiguation}</li>
 
-                                        < button onClick={() => handleClick(label.id)} >SHOW ME ALBUMS</button>
-                                        {
-                                            recordLabelID === label.id && seeReleases == true ?
-                                                <LabelReleases id={recordLabelID} />
-                                                : null
-                                        }
-                                    </div>
-                                )
-                            })
-                            : null
-                    }
+            <ul >
+                {
+                    labelArray.length > 0 ?
+                        labelArray.map((label) => {
+                            return (
+                                <div key={label.id}>
+                                    <li >{label.name} : {label.type} : {label.disambiguation}</li>
+                                    < button onClick={() => handleClick(label.id)} >SHOW ME ALBUMS</button>
 
-                </ul>
-            </div>
+                                </div>
+                            )
+                        })
+                        : null
+                }
+
+            </ul>
+
+            {
+                recordLabelID === recordLabelID && seeReleases == true ?
+                    <LabelReleases id={recordLabelID} />
+                    : null
+            }
         </>
     )
 

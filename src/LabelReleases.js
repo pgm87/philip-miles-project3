@@ -27,6 +27,7 @@ const LabelReleases = ({ id }) => {
 
                 // const unique = [...new Map(res.data.releases.map((release) => [release["status-id"], release])).values()];
                 // console.log(res.data.releases["status-id"]);
+                console.log(res.data.releases);
                 setReleasesArray(res.data.releases);
             })
         }
@@ -36,8 +37,7 @@ const LabelReleases = ({ id }) => {
 
 
     return (
-        <div className="labelReleases">
-            <h2>Releases</h2>
+        <section className="labelReleases">
             {
                 offset > 0 ?
                     <button onClick={handleClickBack}>BACK</button>
@@ -59,7 +59,7 @@ const LabelReleases = ({ id }) => {
                                         </em> -
                                         {release.title} |||
                                         {
-                                            release["cover-art-archive"].artwork == false ?
+                                            release["cover-art-archive"].front == false ?
                                                 <p>NO IMAGE FOUND</p>
                                                 :
                                                 <div style={{ maxWidth: '100px' }}><img style={{ height: 'auto', width: '100%' }} src={`https://coverartarchive.org/release/${release.id}/front`} alt="Photo" /></div>
@@ -71,11 +71,11 @@ const LabelReleases = ({ id }) => {
                         : null
                 }
             </ul >
-            {releasesArray.length > 0 && releasesArray.length == 25 ?
+            {releasesArray.length > 24 ?
                 <button onClick={handleClickForward}>F</button>
                 : null
             }
-        </div >
+        </section >
     )
 }
 
