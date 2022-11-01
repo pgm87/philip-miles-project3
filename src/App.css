@@ -337,10 +337,10 @@ header h3 {
   right: 0;
   top: 50%;
 }
-.labelNames .labelReleases .xBtn {
+.labelNames .labelReleases .xButton {
   position: absolute;
-  top: 2%;
-  right: -2%;
+  top: 4%;
+  right: 2%;
 }
 
 .hidden {

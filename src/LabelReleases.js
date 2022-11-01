@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 // lookup:   /<ENTITY_TYPE>/<MBID>?inc=<INC>
 
 const LabelReleases = ({ id }) => {
+    const recordLabelID = id;
     const [releasesArray, setReleasesArray] = useState([]);
-    const [recordLabelID, setId] = useState(null);
+
     const [offset, setOffset] = useState(0);
     const handleClickBack = () => {
         setOffset(offset - 10);
@@ -62,7 +63,7 @@ const LabelReleases = ({ id }) => {
                                         </em> -
                                         {release.title} |||
                                         {
-                                            release["cover-art-archive"].front == false ?
+                                            release["cover-art-archive"].front === false ?
                                                 <div className="imgContainer"><i className="fa-solid fa-record-vinyl"></i></div>
                                                 :
                                                 <div className="imgContainer"><img src={`https://coverartarchive.org/release/${release.id}/front`} alt="Photo" /></div>

@@ -2,12 +2,10 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import LabelReleases from './LabelReleases';
 
-
 const DisplayLabels = ({ labelName }) => {
     const [labelArray, setLabelArrays] = useState([]);
     const [seeReleases, setSeeReleases] = useState(false);
     const [recordLabelID, setRecordLabelID] = useState(null);
-
 
     useEffect(() => {
         if (labelName !== '') {
@@ -51,7 +49,7 @@ const DisplayLabels = ({ labelName }) => {
             <section className={seeReleases == false ? 'hidden' : 'labelReleases'}>
                 <h2>Display releases</h2>
                 {
-                    recordLabelID === recordLabelID && seeReleases === true ?
+                    seeReleases === true ?
                         <LabelReleases id={recordLabelID} />
                         : null
                 }
