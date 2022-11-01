@@ -5,8 +5,10 @@ import LabelSearch from './LabelSearch';
 
 function App() {
   return (
-    <div className="App">
+    <div className="wrapper">
+      {/* simple header */}
       <Header />
+      {/* label search component */}
       <LabelSearch />
     </div>
   );

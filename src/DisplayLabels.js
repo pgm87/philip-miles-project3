@@ -13,7 +13,6 @@ const DisplayLabels = ({ labelName }) => {
         if (labelName !== '') {
             axios({
                 url: `https://musicbrainz.org/ws/2/label`,
-                method: "GET",
                 params: {
                     query: labelName,
                     fmt: 'json'
@@ -29,32 +28,29 @@ const DisplayLabels = ({ labelName }) => {
     }
     return (
         <>
-            <ul >
-                {
-                    labelArray.length > 0 ?
-                        labelArray.map((label) => {
-                            return (
-                                <div key={label.id}>
-                                    <li >{label.name} : {label.type} : {label.disambiguation}</li>
-                                    {
-                                        seeReleases == false ?
-                                            < button onClick={() => handleClick(label.id)}>SHOW ME ALBUMS</button>
-                                            : < button onClick={() => handleClick(label.id)}>HIDEALBUMS</button>
-                                    }
-                                    {
-                                        recordLabelID === label.id && seeReleases == true ?
-                                            <LabelReleases id={recordLabelID} />
-                                            : null
-                                    }
-                                </div>
-                            )
-                        })
-                        : null
-                }
+            <div className="labelNames">
+                <ul >
+                    {
+                        labelArray.length > 0 ?
+                            labelArray.map((label) => {
+                                return (
+                                    <div key={label.id}>
+                                        <li >{label.name} : {label.type} : {label.disambiguation}</li>
 
-            </ul>
+                                        < button onClick={() => handleClick(label.id)} >SHOW ME ALBUMS</button>
+                                        {
+                                            recordLabelID === label.id && seeReleases == true ?
+                                                <LabelReleases id={recordLabelID} />
+                                                : null
+                                        }
+                                    </div>
+                                )
+                            })
+                            : null
+                    }
 
-
+                </ul>
+            </div>
         </>
     )
 

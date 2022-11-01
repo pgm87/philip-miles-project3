@@ -23,9 +23,10 @@ const LabelReleases = ({ id }) => {
                     offset: offset
                 }
             }).then((res) => {
-                const unique = [...new Map(res.data.releases.map((release) => [release["status-id"], release])).values()];
-                console.log(res.data.releases);
 
+
+                // const unique = [...new Map(res.data.releases.map((release) => [release["status-id"], release])).values()];
+                // console.log(res.data.releases["status-id"]);
                 setReleasesArray(res.data.releases);
             })
         }
@@ -35,7 +36,8 @@ const LabelReleases = ({ id }) => {
 
 
     return (
-        <div>
+        <div className="labelReleases">
+            <h2>Releases</h2>
             {
                 offset > 0 ?
                     <button onClick={handleClickBack}>BACK</button>
@@ -60,7 +62,7 @@ const LabelReleases = ({ id }) => {
                                             release["cover-art-archive"].artwork == false ?
                                                 <p>NO IMAGE FOUND</p>
                                                 :
-                                                <div style={{ maxWidth: '100px' }}><img style={{ height: 'auto', width: '100%' }} src={`https://coverartarchive.org/release/${release.id}/front`} alt="" /></div>
+                                                <div style={{ maxWidth: '100px' }}><img style={{ height: 'auto', width: '100%' }} src={`https://coverartarchive.org/release/${release.id}/front`} alt="Photo" /></div>
                                         }
                                     </li>
                                 </div>

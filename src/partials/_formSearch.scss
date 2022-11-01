@@ -1,0 +1,25 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.formSearch {
+    margin: 0 auto;
+    padding: 5%;
+
+    form {
+        @include flex(column, wrap);
+        width: 80%;
+
+        label {
+            width: 30%;
+        }
+
+        input {
+            width: 30%;
+        }
+
+        button {
+            align-self: center;
+        }
+
+    }
+}

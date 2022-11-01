@@ -8,8 +8,9 @@ const LabelSearch = () => {
     const [submitLabel, setSubmitLabel] = useState('');
 
 
+
     const handleSubmit = (e) => {
-    
+
         e.preventDefault();
         setSubmitLabel(labelSearch);
     }
@@ -18,14 +19,20 @@ const LabelSearch = () => {
         setLabelSearch(e.target.value);
     }
     return (
-        <section>
-            <form action="" onSubmit={handleSubmit}>
-                <label htmlFor="">Search By Record Label Below</label>
-                <input type="text" onChange={(e) => { handleChange(e) }} value={labelSearch} />
-                <button>Submit</button>
-            </form>
-            <DisplayLabels labelName={submitLabel} />
-        </section>
+        <>
+            <section className='formSearch'>
+                <form action="" onSubmit={handleSubmit}>
+                    <label htmlFor="label">Search By Record Label Below</label>
+                    <input id="label" type="text" onChange={(e) => { handleChange(e) }} value={labelSearch} />
+                    <button>Submit</button>
+                </form>
+
+            </section>
+            <section className='labelNames'>
+                <h2>Labels Names</h2>
+                <DisplayLabels labelName={submitLabel} />
+            </section>
+        </>
     )
 }
 
