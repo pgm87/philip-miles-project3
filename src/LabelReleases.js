@@ -22,7 +22,7 @@ const LabelReleases = ({ id }) => {
                     fmt: 'json',
                     inc: 'artist-credits+genres+media',
                     offset: offset,
-                    limit: 10
+                    limit: 5
                 }
             }).then((res) => {
                 setReleasesArray(res.data.releases);
@@ -68,7 +68,7 @@ const LabelReleases = ({ id }) => {
                         : null
                 }
                 {
-                    releasesArray.length > 8 ?
+                    releasesArray.length > 0 ?
                         <button className="btnForward" onClick={handleClickForward}>F</button>
                         : null
                 }

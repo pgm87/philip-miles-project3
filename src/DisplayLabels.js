@@ -17,6 +17,7 @@ const DisplayLabels = ({ labelName }) => {
                 }
             }).then((res) => {
                 setLabelArrays(res.data.labels);
+                console.log(res.data.labels);
             })
         }
     }, [labelName])
@@ -29,14 +30,15 @@ const DisplayLabels = ({ labelName }) => {
     }
     return (
         <>
-
             <ul>
                 {
                     labelArray.length > 0 ?
                         labelArray.map((label) => {
                             return (
                                 <div key={label.id} className="labelNameContainer">
-                                    <li >{label.name} : {label.type} : {label.disambiguation}</li>
+                                    <li >{label.name}
+                                        - {label.type === undefined ? <>Type of Label Unavailable</> : label.type}
+                                        - {label.disambiguation === undefined ? <>No more information to display</> : label.disambiguation}</li>
                                     < button onClick={() => handleClick(label.id)} >SHOW ME ALBUMS</button>
 
                                 </div>
