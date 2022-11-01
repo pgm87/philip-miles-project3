@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // lookup:   /<ENTITY_TYPE>/<MBID>?inc=<INC>
 
 const LabelReleases = ({ id }) => {
-    const recordLabelID = id;
+
     const [releasesArray, setReleasesArray] = useState([]);
 
     const [offset, setOffset] = useState(0);
@@ -34,7 +34,7 @@ const LabelReleases = ({ id }) => {
             })
         }
 
-    }, [recordLabelID, offset]);
+    }, [id, offset]);
 
 
 
@@ -66,7 +66,7 @@ const LabelReleases = ({ id }) => {
                                             release["cover-art-archive"].front === false ?
                                                 <div className="imgContainer"><i className="fa-solid fa-record-vinyl"></i></div>
                                                 :
-                                                <div className="imgContainer"><img src={`https://coverartarchive.org/release/${release.id}/front`} alt="Photo" /></div>
+                                                <div className="imgContainer"><img src={`https://coverartarchive.org/release/${release.id}/front`} alt="Album cover for {release.title}" /></div>
                                         }
                                     </li>
                                 </div>

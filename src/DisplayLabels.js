@@ -46,7 +46,7 @@ const DisplayLabels = ({ labelName }) => {
                 }
 
             </ul>
-            <section className={seeReleases == false ? 'hidden' : 'labelReleases'}>
+            <section className={seeReleases === false ? 'hidden' : 'labelReleases'}>
                 <h2>Display releases</h2>
                 {
                     seeReleases === true ?
