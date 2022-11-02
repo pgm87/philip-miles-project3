@@ -28,17 +28,24 @@ body {
 
 button {
     background-color: $tertiaryColor;
-    font-family: inherit;
+    font-family: $secondaryFont;
     font-size: 0.8rem;
     border: none;
     margin: 10px 0;
+    transition: 0.3s;
+    padding: 10px;
+
 
     &:hover {
         cursor: pointer;
+        transform: scale(1.1);
+        transition: 0.3s;
     }
 
     &:focus {
         cursor: pointer;
+        transform: scale(1.1);
+        transition: 0.3s;
     }
 }
 

@@ -287,22 +287,28 @@ ul {
 }
 
 body {
-  background-color: #FFFCE8;
-  color: #2B262C;
+  background-color: #EAF2E3;
+  color: #363537;
 }
 
 button {
-  background-color: #DD403A;
-  font-family: inherit;
+  background-color: #F25757;
+  font-family: "Yantramanav", sans-serif;
   font-size: 0.8rem;
   border: none;
   margin: 10px 0;
+  transition: 0.3s;
+  padding: 10px;
 }
 button:hover {
   cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.3s;
 }
 button:focus {
   cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.3s;
 }
 
 ul {
@@ -332,22 +338,22 @@ li {
 
 header h1 {
   text-align: left;
-  border-bottom: 2px solid #DD403A;
+  border-bottom: 2px solid #F25757;
   margin-right: -5%;
   padding: 3% 0;
   font-weight: 300;
 }
 header h3 {
   text-align: right;
-  border-bottom: 2px solid #DD403A;
+  border-bottom: 2px solid #F25757;
   margin-left: -5%;
   padding: 3% 0;
   font-weight: 300;
+  padding-left: 5%;
 }
 
 .formSearch {
-  margin: 0 auto;
-  padding: 5%;
+  padding: 5% 0;
 }
 .formSearch form {
   display: flex;
@@ -355,17 +361,33 @@ header h3 {
   flex-wrap: wrap;
   width: 80%;
   align-items: left;
+  border: 2px solid #F25757;
+  width: 50%;
+  padding: 20px 0;
+  border-left: none;
+  margin-left: -5%;
+  padding-left: 5%;
 }
 .formSearch form label {
-  width: 40%;
+  width: 60%;
   padding: 20px 0;
+  font-family: "Roboto Slab", serif;
 }
 .formSearch form input {
-  width: 30%;
+  width: 50%;
+  font-family: "Roboto Slab", serif;
+  padding: 5px;
+  margin: 5px 0;
+  border: 2px solid #EAF2E3;
+  border-left: none;
+}
+.formSearch form input:focus {
+  outline: 3px solid #F25757;
 }
 .formSearch form button {
   align-self: left;
-  width: 20%;
+  width: 30%;
+  border-radius: 0 10px 10px 0;
 }
 
 .labelNames {
@@ -390,7 +412,7 @@ header h3 {
   transition: 0.3s;
   left: 50%;
   top: 50%;
-  background-color: green;
+  background-color: #C0D8AB;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;

@@ -1,4 +1,5 @@
 @use "mixins" as *;
+@use "variables" as *;
 
 .labelNames {
     @include flex(column, wrap);
@@ -20,13 +21,11 @@
         transition: 0.3s;
         left: 50%;
         top: 50%;
-        background-color: $primaryColor;
+        background-color: $displayReleases;
         @include flex(column, nowrap);
         align-items: center;
         width: 80%;
         overflow: auto;
-
-
 
         h2 {
             text-align: center;
