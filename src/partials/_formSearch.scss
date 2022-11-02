@@ -1,6 +1,7 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+
 .formSearch {
 
     padding: 5% 0;
@@ -18,11 +19,24 @@
         padding-left: 5%;
         border-radius: 0 10px 10px 0;
 
+        @include tablet {
+            align-items: center;
+            border-left: 2px solid $tertiaryColor;
+            margin: 0 auto;
+            border-radius: 10px;
+            width: 100%;
+        }
+
 
         label {
             width: 60%;
             padding: 20px 0;
             font-family: $primaryFont;
+
+            @include tablet {
+                width: 100%;
+                text-align: center;
+            }
         }
 
         input {
@@ -36,12 +50,21 @@
             &:focus {
                 outline: 3px solid $tertiaryColor;
             }
+
+            @include tablet {
+                width: 90%;
+                text-align: center;
+            }
         }
 
         button {
             align-self: left;
             width: 30%;
             border-radius: 0 10px 10px 0;
+
+            @include tablet {
+                border-radius: 10px;
+            }
         }
     }
 }
