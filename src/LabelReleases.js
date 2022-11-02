@@ -6,7 +6,7 @@ const LabelReleases = ({ id }) => {
 
     const [releasesArray, setReleasesArray] = useState([]);
     const [offset, setOffset] = useState(0);
-    const [displayNoLabel, setDisplayNoLabel] = useState('Search Above');
+
     const handleClickBack = () => {
         setOffset(offset - 5);
     }
@@ -25,10 +25,9 @@ const LabelReleases = ({ id }) => {
                     limit: 5
                 }
             }).then((res) => {
-                res.data.releases.length > 0 ?
-                    setReleasesArray(res.data.releases)
-                    : setDisplayNoLabel('No Label Found Try Again');
-                console.log('hello from display no label', displayNoLabel);
+
+                setReleasesArray(res.data.releases)
+
             })
         }
 
@@ -44,8 +43,6 @@ const LabelReleases = ({ id }) => {
                         <button className="btnBack" onClick={handleClickBack}><i class="fa-solid fa-backward-step"></i></button>
                         : null
                 }
-
-
                 {
                     releasesArray.length > 0 ?
                         releasesArray.map((release) => {

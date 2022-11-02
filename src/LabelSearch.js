@@ -20,7 +20,7 @@ const LabelSearch = () => {
     }
     return (
         <>
-            <section className='formSearch'>
+            <section className='formSearch wrapper'>
                 <form action="" onSubmit={handleSubmit}>
                     <label htmlFor="label">Search By Record Label Below</label>
                     <input id="label" type="text" onChange={(e) => { handleChange(e) }} value={labelSearch} />
@@ -28,8 +28,7 @@ const LabelSearch = () => {
                 </form>
 
             </section>
-            <section className='labelNames'>
-                <h2>Labels Names</h2>
+            <section className='labelNames wrapper'>
                 <DisplayLabels labelName={submitLabel} />
             </section>
         </>

@@ -1,0 +1,11 @@
+@use "variables" as *;
+
+footer {
+    text-align: center;
+    background-color: $displayReleases ;
+
+    h4 {
+        margin: 0;
+        padding: 10px;
+    }
+}

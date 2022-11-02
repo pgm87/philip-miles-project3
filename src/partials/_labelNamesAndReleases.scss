@@ -4,13 +4,32 @@
 .labelNames {
     @include flex(column, wrap);
 
-    .labelNameContainer {
-        @include flex(row, wrap);
-        justify-content: space-between;
+    .labelReleasesUL {
+        position: relative;
+        padding: 0 5%;
+        padding-bottom: 5%;
 
-        .labelListItem {
-            padding: 2% 0;
+        .labelNameContainer {
+            @include flex(row, wrap);
+            justify-content: space-between;
+
+            .labelListItem {
+                padding: 2% 0;
+            }
         }
+
+        .btnBackLabels {
+            position: absolute;
+            top: 50%;
+            left: 0;
+        }
+
+        .btnForwardLabels {
+            position: absolute;
+            top: 50%;
+            right: 0;
+        }
+
     }
 
     .labelReleases {
@@ -24,8 +43,10 @@
         background-color: $displayReleases;
         @include flex(column, nowrap);
         align-items: center;
-        width: 80%;
+        min-width: 80%;
         overflow: auto;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+        border-radius: 20px;
 
         h2 {
             text-align: center;
@@ -33,11 +54,12 @@
 
         ul {
             position: relative;
+            min-width: 100%;
 
             .labelReleaseContainer {
                 width: 100%;
                 @include flex(row, wrap);
-
+                padding: 1%;
 
                 li {
                     @include flex(row, wrap);
@@ -46,6 +68,8 @@
                     align-items: center;
                     margin: 0 auto;
                     overflow: hidden;
+                    padding: 10px 0;
+                    padding: 5px 0;
 
                     p {
                         @include flex(row, wrap);
@@ -65,6 +89,8 @@
                 right: 0;
                 top: 50%;
             }
+
+
 
 
         }

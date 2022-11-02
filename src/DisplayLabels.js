@@ -7,6 +7,14 @@ const DisplayLabels = ({ labelName }) => {
     const [seeReleases, setSeeReleases] = useState(false);
     const [recordLabelID, setRecordLabelID] = useState(null);
     const [labelsNotFound, setLabelsNotFound] = useState(false);
+    const [offset, setOffset] = useState(0);
+
+    const handleClickBack = () => {
+        setOffset(offset - 5);
+    }
+    const handleClickForward = () => {
+        setOffset(offset + 5);
+    }
 
     useEffect(() => {
         if (labelName !== '') {
@@ -14,45 +22,59 @@ const DisplayLabels = ({ labelName }) => {
                 url: `https://musicbrainz.org/ws/2/label`,
                 params: {
                     query: labelName,
-                    fmt: 'json'
+                    fmt: 'json',
+                    limit: 5,
+                    offset: offset
                 }
             }).then((res) => {
                 if (res.data.labels.length > 0) {
                     setLabelArrays(res.data.labels);
+                    setLabelsNotFound(false);
                 }
                 else {
                     setLabelsNotFound(true);
                 }
             })
         }
-    }, [labelName])
+    }, [labelName, offset])
     const handleClick = (id) => {
         setSeeReleases(!seeReleases);
-        setRecordLabelID(id)
+        setRecordLabelID(id);
     }
     const handleShowDisplay = () => {
         setSeeReleases(!seeReleases);
     }
     return (
         <>
-            <ul className={seeReleases === true ? 'contentNone' : null}>{
-                labelsNotFound === true ?
-                    <h3>No Labels Found</h3>
-                    :
-                    labelArray.length > 0 ?
-                        labelArray.map((label) => {
-                            return (
-                                <div key={label.id} className="labelNameContainer">
-                                    <li className='labelListItem'>{label.name}
-                                        - {label.type === undefined ? <>Type of Label Unavailable</> : label.type}
-                                        - {label.disambiguation === undefined ? <>No more information to display</> : label.disambiguation}</li>
-                                    < button onClick={() => handleClick(label.id)} >Releases</button>
-                                </div>
-                            )
-                        })
+            <h2>Labels Names</h2>
+            <ul className='labelReleasesUL'>
+                {
+                    offset > 0 && labelsNotFound === false ?
+                        <button className="btnBackLabels" onClick={handleClickBack}><i className="fa-solid fa-backward-step"></i></button>
                         : null
-            }
-
+                }
+                {
+                    labelsNotFound === true ?
+                        <h3>No Labels Found</h3>
+                        :
+                        labelArray.length > 0 ?
+                            labelArray.map((label) => {
+                                return (
+                                    <div key={label.id} className="labelNameContainer">
+                                        <li className='labelListItem'>{label.name}
+                                            - {label.type === undefined ? <>Type of Label Unavailable</> : label.type}
+                                            - {label.disambiguation === undefined ? <>No more information to display</> : label.disambiguation}</li>
+                                        < button onClick={() => handleClick(label.id)} disabled={seeReleases} >Releases</button>
+                                    </div>
+                                )
+                            })
+                            : null
+                }
+                {
+                    labelArray.length > 4 && labelsNotFound === false ?
+                        <button className="btnForwardLabels" onClick={handleClickForward}><i className="fa-solid fa-forward-step"></i></button>
+                        : null
+                }
             </ul>
             <section className={seeReleases === false ? 'hidden' : 'labelReleases'}>
                 <h2>Display releases</h2>

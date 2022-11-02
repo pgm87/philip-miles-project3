@@ -299,6 +299,7 @@ button {
   margin: 10px 0;
   transition: 0.3s;
   padding: 10px;
+  border-radius: 5px;
 }
 button:hover {
   cursor: pointer;
@@ -336,6 +337,10 @@ li {
   font-family: "Yantramanav", sans-serif;
 }
 
+i {
+  color: #363537;
+}
+
 header h1 {
   text-align: left;
   border-bottom: 2px solid #F25757;
@@ -367,6 +372,7 @@ header h3 {
   border-left: none;
   margin-left: -5%;
   padding-left: 5%;
+  border-radius: 0 10px 10px 0;
 }
 .formSearch form label {
   width: 60%;
@@ -395,14 +401,29 @@ header h3 {
   flex-direction: column;
   flex-wrap: wrap;
 }
-.labelNames .labelNameContainer {
+.labelNames .labelReleasesUL {
+  position: relative;
+  padding: 0 5%;
+  padding-bottom: 5%;
+}
+.labelNames .labelReleasesUL .labelNameContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.labelNames .labelNameContainer .labelListItem {
+.labelNames .labelReleasesUL .labelNameContainer .labelListItem {
   padding: 2% 0;
+}
+.labelNames .labelReleasesUL .btnBackLabels {
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.labelNames .labelReleasesUL .btnForwardLabels {
+  position: absolute;
+  top: 50%;
+  right: 0;
 }
 .labelNames .labelReleases {
   transition: 0.3s;
@@ -417,20 +438,24 @@ header h3 {
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  width: 80%;
+  min-width: 80%;
   overflow: auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  border-radius: 20px;
 }
 .labelNames .labelReleases h2 {
   text-align: center;
 }
 .labelNames .labelReleases ul {
   position: relative;
+  min-width: 100%;
 }
 .labelNames .labelReleases ul .labelReleaseContainer {
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  padding: 1%;
 }
 .labelNames .labelReleases ul .labelReleaseContainer li {
   display: flex;
@@ -441,6 +466,8 @@ header h3 {
   align-items: center;
   margin: 0 auto;
   overflow: hidden;
+  padding: 10px 0;
+  padding: 5px 0;
 }
 .labelNames .labelReleases ul .labelReleaseContainer li p {
   display: flex;
@@ -479,4 +506,13 @@ body {
 
 li {
   font-size: clamp(0.8rem, 1vw, 1.2rem);
+}
+
+footer {
+  text-align: center;
+  background-color: #C0D8AB;
+}
+footer h4 {
+  margin: 0;
+  padding: 10px;
 }/*# sourceMappingURL=App.css.map */

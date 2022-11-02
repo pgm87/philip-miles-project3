@@ -2,14 +2,17 @@
 import './App.css';
 import Header from './Header';
 import LabelSearch from './LabelSearch';
+import Footer from './Footer';
 
 function App() {
   return (
-    <div className="wrapper">
+    <div >
       {/* simple header */}
-      <Header />
+      <Header className="wrapper" />
       {/* label search component */}
-      <LabelSearch />
+      <LabelSearch className="wrapper" />
+
+      <Footer />
     </div>
   );
 }
