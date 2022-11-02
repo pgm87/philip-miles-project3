@@ -50,7 +50,7 @@ const DisplayLabels = ({ labelName }) => {
             <ul className='labelReleasesUL'>
                 {
                     offset > 0 && labelsNotFound === false ?
-                        <button className="btnBackLabels" onClick={handleClickBack}><i className="fa-solid fa-backward-step"></i></button>
+                        <button className="btnBackLabels" onClick={handleClickBack}><i className="fa-solid fa-backward-step" alt="Click Backward through Labels"></i></button>
                         : null
                 }
                 {
@@ -83,7 +83,7 @@ const DisplayLabels = ({ labelName }) => {
                         <LabelReleases id={recordLabelID} />
                         : null
                 }
-                <button onClick={handleShowDisplay} className="xButton"><i className="fa-solid fa-x"></i></button>
+                <button onClick={handleShowDisplay} className="xButton"><i className="fa-solid fa-x" alt="click forward through labels"></i></button>
             </section>
         </>
     )

@@ -40,7 +40,7 @@ const LabelReleases = ({ id }) => {
             <ul>
                 {
                     offset > 0 ?
-                        <button className="btnBack" onClick={handleClickBack}><i class="fa-solid fa-backward-step"></i></button>
+                        <button className="btnBack" onClick={handleClickBack}><i class="fa-solid fa-backward-step" alt="Click Backward through releases"></i></button>
                         : null
                 }
                 {
@@ -60,7 +60,7 @@ const LabelReleases = ({ id }) => {
                                         </p>
                                         {
                                             release["cover-art-archive"].front === false ?
-                                                <div className="imgContainer"><i className="fa-solid fa-record-vinyl"></i></div>
+                                                <div className="imgContainer"><i className="fa-solid fa-record-vinyl" alt="Image Not Found"></i></div>
                                                 :
                                                 <div className="imgContainer"><img src={`https://coverartarchive.org/release/${release.id}/front`} alt={`Album cover for ${release.title}`} /></div>
                                         }
@@ -72,7 +72,7 @@ const LabelReleases = ({ id }) => {
                 }
                 {
                     releasesArray.length > 4 ?
-                        <button className="btnForward" onClick={handleClickForward}><i class="fa-solid fa-forward-step"></i></button>
+                        <button className="btnForward" onClick={handleClickForward}><i class="fa-solid fa-forward-step" alt="Click Forward through releases"></i></button>
                         : null
                 }
 
