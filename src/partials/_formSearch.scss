@@ -8,12 +8,12 @@
     form {
         @include flex(column, wrap);
         width: 80%;
-        align-items: center;
-        margin: 0 auto;
+        align-items: left;
 
 
         label {
-            width: 30%;
+            width: 40%;
+            padding: 20px 0;
         }
 
         input {
@@ -21,7 +21,8 @@
         }
 
         button {
-            align-self: center;
+            align-self: left;
+            width: 20%;
         }
 
     }

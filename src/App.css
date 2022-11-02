@@ -274,6 +274,8 @@ ul {
 .imgContainer {
   min-width: 9%;
   max-width: 9%;
+  display: block;
+  height: 59px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -285,12 +287,22 @@ ul {
 }
 
 body {
-  background-color: #e5eaef;
-  color: #050517;
+  background-color: #FFFCE8;
+  color: #2B262C;
 }
 
 button {
-  background-color: #8C5E58;
+  background-color: #DD403A;
+  font-family: inherit;
+  font-size: 0.8rem;
+  border: none;
+  margin: 10px 0;
+}
+button:hover {
+  cursor: pointer;
+}
+button:focus {
+  cursor: pointer;
 }
 
 ul {
@@ -299,6 +311,7 @@ ul {
 
 li {
   list-style: none;
+  font-size: clamp(1rem, 1vw, 1.2rem);
 }
 
 img {
@@ -307,11 +320,29 @@ img {
   display: block;
 }
 
+h1,
+h2,
+h3 {
+  font-family: "Roboto Slab", serif;
+}
+
+li {
+  font-family: "Yantramanav", sans-serif;
+}
+
 header h1 {
-  text-align: center;
+  text-align: left;
+  border-bottom: 2px solid #DD403A;
+  margin-right: -5%;
+  padding: 3% 0;
+  font-weight: 300;
 }
 header h3 {
-  text-align: center;
+  text-align: right;
+  border-bottom: 2px solid #DD403A;
+  margin-left: -5%;
+  padding: 3% 0;
+  font-weight: 300;
 }
 
 .formSearch {
@@ -323,29 +354,33 @@ header h3 {
   flex-direction: column;
   flex-wrap: wrap;
   width: 80%;
-  align-items: center;
-  margin: 0 auto;
+  align-items: left;
 }
 .formSearch form label {
-  width: 30%;
+  width: 40%;
+  padding: 20px 0;
 }
 .formSearch form input {
   width: 30%;
 }
 .formSearch form button {
-  align-self: center;
+  align-self: left;
+  width: 20%;
 }
 
 .labelNames {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: center;
 }
 .labelNames .labelNameContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+.labelNames .labelNameContainer .labelListItem {
+  padding: 2% 0;
 }
 .labelNames .labelReleases {
   transition: 0.3s;
@@ -362,7 +397,6 @@ header h3 {
   align-items: center;
   width: 80%;
   overflow: auto;
-  box-shadow: 0px 25px 43px 0px rgba(0, 0, 0, 0.32);
 }
 .labelNames .labelReleases h2 {
   text-align: center;
@@ -384,6 +418,13 @@ header h3 {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  overflow: hidden;
+}
+.labelNames .labelReleases ul .labelReleaseContainer li p {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 80%;
 }
 .labelNames .labelReleases ul .btnBack {
   position: absolute;
@@ -403,6 +444,7 @@ header h3 {
 
 .hidden {
   display: none;
+  transition: 0.3s;
 }
 
 .blur {
@@ -411,4 +453,8 @@ header h3 {
 
 body {
   font-family: "Inknut Antiqua", serif;
+}
+
+li {
+  font-size: clamp(0.8rem, 1vw, 1.2rem);
 }/*# sourceMappingURL=App.css.map */

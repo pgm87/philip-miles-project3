@@ -2,10 +2,14 @@
 
 .labelNames {
     @include flex(column, wrap);
-    align-items: center;
 
     .labelNameContainer {
         @include flex(row, wrap);
+        justify-content: space-between;
+
+        .labelListItem {
+            padding: 2% 0;
+        }
     }
 
     .labelReleases {
@@ -16,12 +20,13 @@
         transition: 0.3s;
         left: 50%;
         top: 50%;
-        background-color: green;
+        background-color: $primaryColor;
         @include flex(column, nowrap);
         align-items: center;
         width: 80%;
         overflow: auto;
-        box-shadow: 0px 25px 43px 0px rgb(0 0 0 / 32%);
+
+
 
         h2 {
             text-align: center;
@@ -41,6 +46,12 @@
                     justify-content: space-between;
                     align-items: center;
                     margin: 0 auto;
+                    overflow: hidden;
+
+                    p {
+                        @include flex(row, wrap);
+                        width: 80%;
+                    }
                 }
             }
 
@@ -67,8 +78,11 @@
     }
 }
 
+
+
 .hidden {
     display: none;
+    transition: 0.3s;
 }
 
 .blur {

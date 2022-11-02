@@ -2,10 +2,18 @@
 
 header {
     h1 {
-        text-align: center;
+        text-align: left;
+        border-bottom: 2px solid $tertiaryColor;
+        margin-right: -5%;
+        padding: 3% 0;
+        font-weight: 300;
     }
 
     h3 {
-        text-align: center;
+        text-align: right;
+        border-bottom: 2px solid $tertiaryColor;
+        margin-left: -5%;
+        padding: 3% 0;
+        font-weight: 300;
     }
 }

@@ -10,6 +10,8 @@
 .imgContainer {
     min-width: 9%;
     max-width: 9%;
+    display: block;
+    height: 59px;
     @include flex(row, wrap);
     align-items: center;
 
@@ -26,6 +28,18 @@ body {
 
 button {
     background-color: $tertiaryColor;
+    font-family: inherit;
+    font-size: 0.8rem;
+    border: none;
+    margin: 10px 0;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:focus {
+        cursor: pointer;
+    }
 }
 
 ul {
@@ -34,10 +48,22 @@ ul {
 
 li {
     list-style: none;
+    font-size: clamp(1rem, 1vw, 1.2rem);
+
 }
 
 img {
     width: 100%;
     height: auto;
     display: block;
+}
+
+h1,
+h2,
+h3 {
+    font-family: $primaryFont;
+}
+
+li {
+    font-family: $secondaryFont;
 }

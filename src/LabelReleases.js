@@ -5,13 +5,13 @@ import { useEffect, useState } from "react";
 const LabelReleases = ({ id }) => {
 
     const [releasesArray, setReleasesArray] = useState([]);
-
     const [offset, setOffset] = useState(0);
+    const [displayNoLabel, setDisplayNoLabel] = useState('Search Above');
     const handleClickBack = () => {
-        setOffset(offset - 10);
+        setOffset(offset - 5);
     }
     const handleClickForward = () => {
-        setOffset(offset + 10);
+        setOffset(offset + 5);
     }
 
     useEffect(() => {
@@ -25,7 +25,10 @@ const LabelReleases = ({ id }) => {
                     limit: 5
                 }
             }).then((res) => {
-                setReleasesArray(res.data.releases);
+                res.data.releases.length > 0 ?
+                    setReleasesArray(res.data.releases)
+                    : setDisplayNoLabel('No Label Found Try Again');
+                console.log('hello from display no label', displayNoLabel);
             })
         }
 
@@ -38,28 +41,31 @@ const LabelReleases = ({ id }) => {
             <ul>
                 {
                     offset > 0 ?
-                        <button className="btnBack" onClick={handleClickBack}>B</button>
+                        <button className="btnBack" onClick={handleClickBack}><i class="fa-solid fa-backward-step"></i></button>
                         : null
                 }
+
+
                 {
                     releasesArray.length > 0 ?
                         releasesArray.map((release) => {
                             return (
                                 < div key={release.id} className="labelReleaseContainer" >
-                                    <li>
-
-                                        {release["artist-credit"].map((artist) => {
-                                            return (
-                                                artist["name"] + artist["joinphrase"]
-                                            )
-                                        })}
-                                        -
-                                        {release.title}
+                                    <li key={release.id}>
+                                        <p>
+                                            {release["artist-credit"].map((artist) => {
+                                                return (
+                                                    artist["name"] + artist["joinphrase"]
+                                                )
+                                            })}
+                                            -
+                                            {release.title}
+                                        </p>
                                         {
                                             release["cover-art-archive"].front === false ?
                                                 <div className="imgContainer"><i className="fa-solid fa-record-vinyl"></i></div>
                                                 :
-                                                <div className="imgContainer"><img src={`https://coverartarchive.org/release/${release.id}/front`} alt="Album cover for {release.title}" /></div>
+                                                <div className="imgContainer"><img src={`https://coverartarchive.org/release/${release.id}/front`} alt={`Album cover for ${release.title}`} /></div>
                                         }
                                     </li>
                                 </div>
@@ -68,8 +74,8 @@ const LabelReleases = ({ id }) => {
                         : null
                 }
                 {
-                    releasesArray.length > 0 ?
-                        <button className="btnForward" onClick={handleClickForward}>F</button>
+                    releasesArray.length > 4 ?
+                        <button className="btnForward" onClick={handleClickForward}><i class="fa-solid fa-forward-step"></i></button>
                         : null
                 }
 
