@@ -341,11 +341,6 @@ i {
   color: #363537;
 }
 
-@media (max-width: 480px) {
-  header {
-    height: 100vh;
-  }
-}
 header h1 {
   text-align: left;
   border-bottom: 2px solid #F25757;

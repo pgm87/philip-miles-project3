@@ -2,9 +2,6 @@
 @use "mixins" as *;
 
 header {
-    @include mobile {
-        height: 100vh;
-    }
 
     h1 {
         text-align: left;
