@@ -53,6 +53,7 @@ const LabelReleases = ({ id }) => {
                                             {release["artist-credit"].map((artist) => {
                                                 return (
                                                     artist["name"] + artist["joinphrase"]
+                                                    // checkout array.join
                                                 )
                                             })}
                                             -
@@ -63,6 +64,7 @@ const LabelReleases = ({ id }) => {
                                                 <div className="imgContainer"><i className="fa-solid fa-record-vinyl" alt="Image Not Found"></i></div>
                                                 :
                                                 <div className="imgContainer"><img src={`https://coverartarchive.org/release/${release.id}/front`} alt={`Album cover for ${release.title}`} /></div>
+                                            // record spinning animation
                                         }
                                     </li>
                                 </div>

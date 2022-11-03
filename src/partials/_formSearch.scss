@@ -5,7 +5,8 @@
 .formSearch {
 
     padding: 5% 0;
-
+    @include flex(row, wrap);
+    align-items: center;
 
     form {
         @include flex(column, wrap);
@@ -66,5 +67,10 @@
                 border-radius: 10px;
             }
         }
+    }
+
+    .labelHeaderHelp {
+        margin: 0 auto;
+        font-size: 1.2rem;
     }
 }

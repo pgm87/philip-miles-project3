@@ -6,6 +6,7 @@ import DisplayLabels from './DisplayLabels';
 const LabelSearch = () => {
     const [labelSearch, setLabelSearch] = useState('');
     const [submitLabel, setSubmitLabel] = useState('');
+    const [displayLabels, setDisplayLabels] = useState(false);
 
 
 
@@ -13,6 +14,8 @@ const LabelSearch = () => {
 
         e.preventDefault();
         setSubmitLabel(labelSearch);
+        setLabelSearch('');
+        setDisplayLabels(true);
     }
 
     const handleChange = (e) => {
@@ -26,12 +29,24 @@ const LabelSearch = () => {
                     <input id="label" type="text" onChange={(e) => { handleChange(e) }} value={labelSearch} />
                     <button>Submit</button>
                 </form>
+                {
+                    displayLabels === true ?
+                        <h3 className='labelHeaderHelp'>Labels are in check 'em out</h3>
+                        :
+                        <h3 className='labelHeaderHelp'>Search for those labels</h3>
+                }
+            </section>
+            {
+                displayLabels === true ?
+                    <section className='labelNames wrapper'>
+                        <DisplayLabels labelName={submitLabel} />
+                    </section>
 
-            </section>
-            <section className='labelNames wrapper'>
-                <DisplayLabels labelName={submitLabel} />
-            </section>
+                    : null
+
+            }
         </>
+
     )
 }
 

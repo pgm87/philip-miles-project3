@@ -11,7 +11,7 @@ function App() {
       <Header className="wrapper" />
       {/* label search component */}
       <LabelSearch className="wrapper" />
-
+      {/* simple footer */}
       <Footer />
     </div>
   );

@@ -30,6 +30,7 @@ const DisplayLabels = ({ labelName }) => {
                 if (res.data.labels.length > 0) {
                     setLabelArrays(res.data.labels);
                     setLabelsNotFound(false);
+                    // filter method?
                 }
                 else {
                     setLabelsNotFound(true);
@@ -50,7 +51,9 @@ const DisplayLabels = ({ labelName }) => {
             <ul className='labelReleasesUL'>
                 {
                     offset > 0 && labelsNotFound === false ?
-                        <button className="btnBackLabels" onClick={handleClickBack}><i className="fa-solid fa-backward-step" alt="Click Backward through Labels"></i></button>
+                        <button className="btnBackLabels" onClick={handleClickBack}>
+                            <i className="fa-solid fa-backward-step" alt="Click Backward through Labels"></i>
+                        </button>
                         : null
                 }
                 {
@@ -64,8 +67,9 @@ const DisplayLabels = ({ labelName }) => {
                                         <li className='labelListItem'>{label.name}
                                             - {label.type === undefined ? <>Type of Label Unavailable</> : label.type}
                                             - {label.disambiguation === undefined ? <>No more information to display</> : label.disambiguation}</li>
-                                        < button onClick={() => handleClick(label.id)} disabled={seeReleases} >Releases</button>
+                                        < button onClick={() => handleClick(label.id)} disabled={seeReleases} >See Releases</button>
                                     </div>
+                                    // think about different tags instead of fragments
                                 )
                             })
                             : null
