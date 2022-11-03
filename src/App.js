@@ -4,7 +4,11 @@ import Header from './Header';
 import LabelSearch from './LabelSearch';
 import Footer from './Footer';
 
+
+
+
 function App() {
+
   return (
     <div >
       {/* simple header */}
@@ -13,6 +17,7 @@ function App() {
       <LabelSearch className="wrapper" />
       {/* simple footer */}
       <Footer />
+
     </div>
   );
 }

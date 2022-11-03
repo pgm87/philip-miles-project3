@@ -265,6 +265,14 @@ ul {
   padding: 0;
 }
 
+.fadeIn {
+  opacity: 1;
+}
+
+.fadeOut {
+  opacity: 0;
+}
+
 .wrapper {
   max-width: 1280px;
   width: 90%;

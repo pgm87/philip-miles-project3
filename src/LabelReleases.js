@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 // lookup:   /<ENTITY_TYPE>/<MBID>?inc=<INC>
 
 const LabelReleases = ({ id }) => {
-
+    //  States for array of releases and offset for scrolling through;
     const [releasesArray, setReleasesArray] = useState([]);
     const [offset, setOffset] = useState(0);
-
+    // handleclicks for setting the offset
     const handleClickBack = () => {
         setOffset(offset - 5);
     }
@@ -14,6 +14,7 @@ const LabelReleases = ({ id }) => {
         setOffset(offset + 5);
     }
 
+    // API call triggered by changing the offset and receiving the label id
     useEffect(() => {
         if (id !== '') {
             axios({
@@ -38,11 +39,13 @@ const LabelReleases = ({ id }) => {
     return (
         <>
             <ul>
+                {/* ternary to check if offset over 1 which displays button */}
                 {
                     offset > 0 ?
                         <button className="btnBack" onClick={handleClickBack}><i class="fa-solid fa-backward-step" alt="Click Backward through releases"></i></button>
                         : null
                 }
+                {/* map through release array to display releases */}
                 {
                     releasesArray.length > 0 ?
                         releasesArray.map((release) => {
@@ -59,6 +62,7 @@ const LabelReleases = ({ id }) => {
                                             -
                                             {release.title}
                                         </p>
+                                        {/* ternary to detect if cover art is there */}
                                         {
                                             release["cover-art-archive"].front === false ?
                                                 <div className="imgContainer"><i className="fa-solid fa-record-vinyl" alt="Image Not Found"></i></div>
