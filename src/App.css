@@ -428,6 +428,7 @@ header h3 {
 .formSearch .labelHeaderHelp {
   margin: 0 auto;
   font-size: 1.2rem;
+  padding: 10px 0;
 }
 
 .labelNames {
