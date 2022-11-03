@@ -68,7 +68,6 @@ const DisplayLabels = ({ labelName }) => {
                                             /// {label.disambiguation === undefined ? <>No more information to display</> : label.disambiguation}</li>
                                         < button onClick={() => handleClick(label.id)} disabled={seeReleases} >See Releases</button>
                                     </div>
-                                    // think about different tags instead of fragments
                                 )
                             })
                             : null
