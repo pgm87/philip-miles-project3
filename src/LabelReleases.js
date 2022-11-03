@@ -76,6 +76,7 @@ const LabelReleases = ({ id }) => {
                         })
                         : null
                 }
+                {/* ternary to check array length */}
                 {
                     releasesArray.length > 4 ?
                         <button className="btnForward" onClick={handleClickForward}><i class="fa-solid fa-forward-step" alt="Click Forward through releases"></i></button>

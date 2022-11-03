@@ -4,12 +4,13 @@ import DisplayLabels from './DisplayLabels';
 
 
 const LabelSearch = () => {
+    // variables to check if 
     const [labelSearch, setLabelSearch] = useState('');
     const [submitLabel, setSubmitLabel] = useState('');
     const [displayLabels, setDisplayLabels] = useState(false);
 
 
-
+    // Handle Submit function, grabs value and passes it on to children
     const handleSubmit = (e) => {
 
         e.preventDefault();
@@ -29,6 +30,7 @@ const LabelSearch = () => {
                     <input id="label" type="text" onChange={(e) => { handleChange(e) }} value={labelSearch} />
                     <button>Submit</button>
                 </form>
+                {/* checks to see what header to display */}
                 {
                     displayLabels === true ?
                         <h3 className='labelHeaderHelp'>Labels are in check 'em out</h3>
@@ -43,7 +45,6 @@ const LabelSearch = () => {
                     </section>
 
                     : null
-
             }
         </>
 
