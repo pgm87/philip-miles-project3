@@ -265,14 +265,6 @@ ul {
   padding: 0;
 }
 
-.fadeIn {
-  opacity: 1;
-}
-
-.fadeOut {
-  opacity: 0;
-}
-
 .wrapper {
   max-width: 1280px;
   width: 90%;
@@ -505,7 +497,7 @@ header h3 {
   padding: 30px 40px;
   position: fixed;
   transform: translate(-50%, -50%);
-  transition: 0.3s;
+  transition: 1s;
   left: 50%;
   top: 50%;
   background-color: #C0D8AB;
@@ -609,17 +601,60 @@ header h3 {
 
 .hidden {
   display: none;
-  transition: 0.3s;
+  transition: 1s;
 }
 
-.blur {
-  filter: blur(5px);
+.labelLoad {
+  padding: 12%;
+  font-size: 12rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media (max-width: 480px) {
+  .labelLoad {
+    font-size: 4rem;
+  }
+}
+.labelLoad .largeRecordSpinning {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  -webkit-animation: 3s infinite ease-in-out bouncing;
+          animation: 3s infinite ease-in-out bouncing;
 }
 
-.labelsHeaderHelp {
-  position: absolute;
+@-webkit-keyframes bouncing {
+  0% {
+    transform: translateX(0%);
+  }
+  33% {
+    transform: translateX(50%);
+  }
+  66% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
+@keyframes bouncing {
+  0% {
+    transform: translateX(0%);
+  }
+  33% {
+    transform: translateX(50%);
+  }
+  66% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
 footer {
   text-align: center;
   background-color: #C0D8AB;

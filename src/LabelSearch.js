@@ -27,7 +27,7 @@ const LabelSearch = () => {
             <section className='formSearch wrapper'>
                 <form action="" onSubmit={handleSubmit}>
                     <label htmlFor="label">Search By Record Label Below</label>
-                    <input id="label" type="text" onChange={(e) => { handleChange(e) }} value={labelSearch} />
+                    <input id="label" type="text" onChange={(e) => { handleChange(e) }} value={labelSearch} required={true} />
                     <button>Submit</button>
                 </form>
                 {/* checks to see what header to display */}
@@ -44,7 +44,9 @@ const LabelSearch = () => {
                         <DisplayLabels labelName={submitLabel} />
                     </section>
 
-                    : null
+                    : <div className='labelLoad wrapper'>
+                        <div className="largeRecordSpinning"><i className="fa-solid fa-record-vinyl" alt="Spinnging Record"></i></div>
+                    </div>
             }
         </>
 

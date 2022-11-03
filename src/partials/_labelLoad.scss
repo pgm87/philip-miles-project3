@@ -1,0 +1,37 @@
+@use "mixins" as *;
+
+.labelLoad {
+    padding: 12%;
+    font-size: 12rem;
+    @include flex(row, wrap);
+    justify-content: center;
+
+    @include mobile {
+        font-size: 4rem;
+    }
+
+    .largeRecordSpinning {
+        @include flex(row, wrap);
+        align-items: center;
+        animation: 3s infinite ease-in-out bouncing;
+
+    }
+}
+
+@keyframes bouncing {
+    0% {
+        transform: translateX(0%);
+    }
+
+    33% {
+        transform: translateX(50%);
+    }
+
+    66% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
