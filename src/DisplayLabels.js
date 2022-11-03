@@ -30,7 +30,6 @@ const DisplayLabels = ({ labelName }) => {
                 if (res.data.labels.length > 0) {
                     setLabelArrays(res.data.labels);
                     setLabelsNotFound(false);
-                    // filter method?
                 }
                 else {
                     setLabelsNotFound(true);
