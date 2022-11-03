@@ -64,7 +64,7 @@ const DisplayLabels = ({ labelName }) => {
                                 return (
                                     <div key={label.id} className="labelNameContainer">
                                         <li className='labelListItem'>{`${label.name} `}
-                                            /// {label.disambiguation === undefined ? <>No more information to display</> : label.disambiguation}</li>
+                                            --- {label.disambiguation === undefined ? <>No more information to display</> : label.disambiguation}</li>
                                         < button onClick={() => handleClick(label.id)} disabled={seeReleases} >See Releases</button>
                                     </div>
                                 )
